@@ -53,3 +53,9 @@
     - A way that I learned to tackle this :
         - Block pruning
             - Not very clear to me at the moment. 
+
+
+## Resources
+- [Blockchain Tutorial-Base](https://www.youtube.com/watch?v=M576WGiDBdQ&t=5102s)
+- [Website-Blockchain-Understanding](https://andersbrownworth.com/blockchain/)
+- [Website-signing-Understanding](https://andersbrownworth.com/blockchain/public-private-keys/)
