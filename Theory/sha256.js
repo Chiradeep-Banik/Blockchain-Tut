@@ -177,6 +177,6 @@
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  */
 
-console.log(Sha256.hash(abc))
+console.log(Sha256.hash("abc"))
 
 // export default Sha256;
