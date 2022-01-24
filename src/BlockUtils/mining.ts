@@ -1,10 +1,11 @@
-import { IPreMinedBlock, IMinedBlock } from './block';
+import type { IPreMinedBlock, IMinedBlock } from '../types';
 import hasher from './hasher';
 
 /** The mine function to mine the block
  *      - The function increments the nonce until the hash starts with 1313
  *      - The function return a block after appending the hash and with the updated nonce.
 */
+
 const mine = (block: IPreMinedBlock): IMinedBlock => {
     let hash = hasher(block);
     while (hash.substring(0, 4) !== "cccc") {
@@ -18,7 +19,7 @@ const mine = (block: IPreMinedBlock): IMinedBlock => {
         "hash": hash,
     }
     console.log(minedBlock);
-    console.log("Block mined ⛏️⛏️⛏️⛏️");
+    console.log("Block mined ⛏️ ⛏️ ⛏️ ⛏️");
     return minedBlock;
 };
 
