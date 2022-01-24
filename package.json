@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "watch": "tsc -w",
-    "start": "nodemon build/mining.js"
+    "start": "rm -rf build && tsc && nodemon build/index.js",
+    "dev": "nodemon build/index.js"
   },
   "repository": {
     "type": "git",
