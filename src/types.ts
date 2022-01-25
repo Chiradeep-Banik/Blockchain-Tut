@@ -7,8 +7,15 @@ interface IPreMinedBlock {
     prevHash: string;
     nonce: number;
 };
+
 interface IMinedBlock extends IPreMinedBlock {
     hash: string;
 };
 
-export type { IPreMinedBlock, IMinedBlock };
+interface IBlockchain {
+    chain: IMinedBlock[];
+    difficulty: number;
+    miningReward: number;
+}
+
+export type { IPreMinedBlock, IMinedBlock, IBlockchain };
