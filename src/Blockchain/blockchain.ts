@@ -2,6 +2,7 @@ import mine from "../BlockUtils/mining";
 import verifyHash from "../BlockUtils/verifyHash";
 import { IBlockchain, IMinedBlock, IPreMinedBlock } from "../types";
 
+/**
 const initialize = (blockchain: IBlockchain): IBlockchain => {
 
     const preGenesisBlock: IPreMinedBlock = {
@@ -17,7 +18,7 @@ const initialize = (blockchain: IBlockchain): IBlockchain => {
     blockchain.chain.push(genesisBlock);
     return blockchain;
 };
-
+*/
 const addBlock = (blockchain: IBlockchain, block: IMinedBlock): boolean => {
     if (verifyHash(block) && block.index < blockchain.chain.length) {
         const prevHash = blockchain.chain[block.index - 1]?.hash;
