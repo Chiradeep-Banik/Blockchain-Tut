@@ -1,19 +1,9 @@
 import { createHash } from 'crypto';
-import type { IMinedBlock, IPreMinedBlock } from '../types';
-
 
 //The hasher function to calculate the hash using sha256
-const hasher = (data: IPreMinedBlock | IMinedBlock) => {
-    var hash = createHash('sha256');
-    var hashFood: IPreMinedBlock = {
-        index: data.index,
-        timestamp: data.timestamp,
-        data: data.data,
-        prevHash: data.prevHash,
-        nonce: data.nonce
-    };
-    const stringData = JSON.stringify(hashFood);
-    hash.update(stringData);
+const hasher = (data: string, index: number, previousHash: string, timestamp: number): string => {
+    const hash = createHash('sha256');
+    hash.update(JSON.stringify({ data, index, previousHash, timestamp }));
     return hash.digest('hex');
 };
 

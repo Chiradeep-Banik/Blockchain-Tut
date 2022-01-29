@@ -1,34 +1,23 @@
-import mine from "../BlockUtils/mining";
-import verifyHash from "../BlockUtils/verifyHash";
-import { IBlockchain, IMinedBlock, IPreMinedBlock } from "../types";
+import hasher from "../BlockUtils/hasher";
+import type { IBlock, IBlockchain } from "./../types";
 
-/**
-const initialize = (blockchain: IBlockchain): IBlockchain => {
-
-    const preGenesisBlock: IPreMinedBlock = {
+const createGenesisBlock = (): IBlock<string> => {
+    const genesisBlock: IBlock<string> = {
         index: 0,
+        hash: hasher(),
+        nonce: calculateNonce(),
+        previousHash: "0000000000000000",
         timestamp: Date.now(),
-        data: "Genesis Block",
-        prevHash: "0",
-        nonce: 0
+        data: "Genesis Block"
     };
-
-    const genesisBlock: IMinedBlock = mine(preGenesisBlock);
-
-    blockchain.chain.push(genesisBlock);
-    return blockchain;
+    return genesisBlock;
 };
-*/
-const addBlock = (blockchain: IBlockchain, block: IMinedBlock): boolean => {
-    if (verifyHash(block) && block.index < blockchain.chain.length) {
-        const prevHash = blockchain.chain[block.index - 1]?.hash;
-        if (prevHash === block.prevHash) {
-            blockchain.chain.push(block);
-            return true;
-        }
-    }
-    return false;
+
+let blockchain: IBlockchain = {
+    chain: [createGenesisBlock()],
+    difficulty: 2,
+    miningReward: 100
 };
 
 
-export { initialize, addBlock };
+export default blockchain;

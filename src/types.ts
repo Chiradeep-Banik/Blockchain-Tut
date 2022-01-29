@@ -1,21 +1,18 @@
 // The interfaces for the blocks..
 
-interface IPreMinedBlock {
+interface IBlock<DataType> {
     index: number;
-    timestamp: number;
-    data: any;
-    prevHash: string;
-    nonce: number;
-};
-
-interface IMinedBlock extends IPreMinedBlock {
     hash: string;
-};
+    previousHash: string;
+    timestamp: number;
+    data: DataType;
+    nonce: number;
+}
 
 interface IBlockchain {
-    chain: IMinedBlock[];
+    chain: IBlock<string>[];
     difficulty: number;
     miningReward: number;
 }
 
-export type { IPreMinedBlock, IMinedBlock, IBlockchain };
+export type { IBlock, IBlockchain };
